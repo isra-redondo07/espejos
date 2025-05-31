@@ -1,0 +1,564 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f8f9fa;
+  }
+  
+  .contenedor-producto {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  /* Carrusel de imágenes */
+  .carrusel-contenedor {
+    flex: 1;
+    position: relative;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .carrusel {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slide {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  
+  .controles {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: background 0.3s;
+  }
+  
+  .prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+  }
+  
+  /* Detalles del producto */
+  .detalles-producto {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+  }
+  
+  
+  .descripcion {
+    color: #111111;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+  }
+  
+  /* MODIFICACIÓN SOLICITADA - Dimensiones */
+  .Dimensiones {
+    margin: 15px 0;
+  }
+  
+  .Dimensiones h2 {
+    font-size: 1.1em; /* Tamaño de letra aumentado */
+    color: #8b8b8b; /* Color azul moderno */
+    margin-bottom: 12px;
+  }
+  
+  .Dimensiones p {
+    font-size: 1.1 em; /* Tamaño de letra aumentado */
+    color: #050505; /* Color azul más claro */
+    margin: 12px 0;
+    display: flex;
+   
+  }
+  
+  .Dimensiones span {
+    font-weight: bold;
+    color: #2c3e50; /* Color más oscuro para los valores */
+  }
+  
+  .opciones-montura {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .opciones-montura p {
+    color: #34495e;
+    font-size: 1.1em;
+    margin: 12px 0;
+  }
+  
+  .opciones-montura span {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .btn-comprar {
+    background: #43a047;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 18px;
+    font-weight: bold;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .btn-comprar:hover {
+    background: #2e7031;
+  }
+  
+
+/* Estilos para el lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+
+
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contenedor-producto {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    .slide img {
+      height: 300px;
+    }
+    
+    .precio-principal {
+      font-size: 2em;
+    }
+  }
+
+  .detalle-producto {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 32px 28px 28px 28px;
+  text-align: center;
+  position: relative;
+}
+
+.carrusel-contenedor {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.carrusel {
+  min-height: 320px;
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 320px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.slide img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 24px rgba(33,150,243,0.13);
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2196F3;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.9;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(33,150,243,0.13);
+}
+.prev:hover, .next:hover { background: #1769aa; transform: scale(1.1); }
+.prev { left: -18px; }
+.next { right: -18px; }
+
+.slide-indicador {
+  position: absolute;
+  bottom: 10px;
+  right: 18px;
+  background: rgba(33,150,243,0.85);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+  z-index: 3;
+}
+
+.badge {
+  display: inline-block;
+  background: #ffb300;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 18px;
+  border-radius: 16px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+h1.nombre-producto {
+  font-size: 2.1em;
+  color: #263238;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.descripcion {
+  margin: 18px 0 10px 0;
+  color: #444;
+  font-size: 1.13em;
+  line-height: 1.6;
+}
+
+.Dimensiones, .opciones-montura {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.08em;
+}
+
+.botones-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.btn-comprar {
+  background: #43a047;
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-size: 1.15em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.08);
+}
+.btn-comprar:hover {
+  background: #2e7031;
+  transform: scale(1.04);
+}
+
+.btn-compartir {
+  background: #2196F3;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1.08em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+}
+.btn-compartir:hover {
+  background: #1769aa;
+  transform: scale(1.04);
+}
+
+/* Lightbox mejorado */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.93);
+  text-align: center;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(33,150,243,0.18);
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 38px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.close:hover { color: #ffb300; }
+
+.btn-regresar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background: #1976D2;
+    transform: scale(1.1);
+}
+
+/* Responsive mejoras */
+@media (max-width: 768px) {
+  .detalle-producto {
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .slide img {
+    height: 220px;
+  }
+  .prev, .next {
+    width: 36px; height: 36px; font-size: 1.1em;
+  }
+  .botones-acciones {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.modal-compra {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-compra .modal-contenido {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.botones-acciones {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-comprar,
+.btn-compartir {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-compartir {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-comprar:hover,
+.btn-compartir:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal .modal-contenido {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.botones-acciones {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.btn-comprar,
+.btn-compartir {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-compartir {
+    background: #2196F3;
+    color: white;
+}
+
+/* Reemplaza los estilos del carrusel con estos */
+.imagen-producto-contenedor {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.imagen-producto {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.imagen-producto:hover {
+    transform: scale(1.02);
+}
+

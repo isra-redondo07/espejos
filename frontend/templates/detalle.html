@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Agregar meta tags -->
+<meta name="description" content="Espejos decorativos en Valledupar">
+<meta name="keywords" content="espejos, decoración, Valledupar">
+  <title>La galería del espejo</title>
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/style-navbar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style-detalle.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/script.js" defer></script>
+  <script src="/js/script-detalle.js" defer></script>
+
+</head>
+<body>
+  <!-- Barra de navegación -->
+<header class="navbar">
+    <div class="logo">
+        <a href="/" class="logo-link">
+            <i class="fas fa-mirror"></i>
+            <span>La Galería del Espejo</span>
+        </a>
+    </div>
+  </header>
+
+  <!-- Carrusel de Ofertas -->
+<section id="ofertas" class="slider"></section>
+
+  <!-- Botón de regresar -->
+<!-- Botón de regresar - Asegúrate de que esté así -->
+<button class="btn-regresar">
+    <a href="/"><i class="fas fa-arrow-left"></i> Regresar</a>
+</button>
+
+  <!-- Detalle del producto -->
+  <div class="detalle-producto">
+    <div class="imagen-producto-contenedor">
+        <img id="imagen-producto" class="imagen-producto" src="/static/img/placeholder.jpg" alt="Imagen del producto" onclick="mostrarLightbox(this.src)">
+    </div>
+    
+    <div class="producto-info">
+        <h1 class="nombre-producto"></h1>
+        <div class="badge" style="display:none;"></div>
+        <div class="descripcion"></div>
+        
+        <div class="Dimensiones">
+            <span></span> x <span></span>
+        </div>
+        
+        <div class="opciones-montura">
+            <p>Con montura: $<span></span></p>
+            <p>Sin montura: $<span></span></p>
+        </div>
+
+        <div class="botones-acciones">
+            <button id="btn-comprar" class="btn-comprar">
+                <i class="fas fa-shopping-cart"></i> Comprar
+            </button>
+            <button id="btn-compartir" class="btn-compartir">
+                <i class="fas fa-share"></i> Compartir
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal de Compra -->
+<div id="modal-compra" class="modal">
+    <div class="modal-contenido">
+        <div class="modal-header">
+            <h2><i class="fas fa-shopping-cart"></i> Completa tu pedido</h2>
+            <span class="cerrar-modal-compra">&times;</span>
+        </div>
+        <form id="form-compra">
+            <div class="form-group">
+                <label for="producto"><i class="fas fa-mirror"></i> Espejo:</label>
+                <input type="text" id="producto" name="producto" readonly>
+            </div>
+            <div class="form-group">
+        <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="apellido"><i class="fas fa-user"></i> Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación (Valledupar):</label>
+        <input type="text" id="ubicacion" name="ubicacion" placeholder="Barrio, dirección..." required>
+      </div>
+      <div class="form-group">
+        <label for="telefono"><i class="fas fa-phone"></i> Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="pago"><i class="fas fa-money-bill-wave"></i> Método de pago:</label>
+        <select id="pago" name="pago" required>
+          <option value="Nequi">Nequi</option>
+          <option value="Daviplata">Cotizacion</option>
+          <option value="Efectivo">Pago contra entrega</option>
+        </select>
+      </div>
+      <div class="form-actions">
+                <button type="submit" class="btn-confirmar">
+                    <i class="fas fa-check"></i> Confirmar
+                </button>
+                <button type="button" class="btn-cancelar">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" style="display:none;">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Imagen ampliada">
+  </div>
+
+  
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+        <p>📍 Entregamos exclusivamente en Valledupar, Cesar</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-phone-alt"></i> Contacto</h3>
+        <p>WhatsApp: <a href="https://wa.me/573053646901" target="_blank">+57 305 3646901</a></p>
+        <h4><i class="fas fa-phone-alt"></i> Desarrollador web</h4>
+        <p>WhatsApp: <a href="https://wa.me/573053646901" target="_blank">+57 305 3646901</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 La galería del espejo - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/573053646901" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>

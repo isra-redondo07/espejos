@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Espejos decorativos en Valledupar">
+  <meta name="keywords" content="espejos, decoración, Valledupar">
+  <title>La galería del espejo en Valledupar</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="/js/script.js" defer></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <a href="/" class="logo-link">
+            <i class="fas fa-mirror"></i>
+            <span>La Galería del Espejo</span>
+        </a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#productos"><i class="fas fa-store-alt"></i> Productos</a></li>
+        <li><a href="#ofertas"><i class="fas fa-tag"></i> Ofertas</a></li>
+        <li><a href="#testimonios"><i class="fas fa-users"></i> Clientes</a></li>
+        <li><a href="#contacto"><i class="fas fa-phone-alt"></i> Contacto</a></li>
+        <li><a href="#" id="adminBtn" class="btn-confirmar"><i class="fas fa-user-shield"></i> Admin</a></li>
+      </ul>
+    </nav>
+</header>
+
+<!-- Carrusel de Ofertas -->
+<section id="ofertas" class="slider"></section>
+
+<!-- Categorías de espejos -->
+<section id="categorias" class="categorias">
+  <h2><i class="fas fa-filter"></i> Filtrar por tipo de espejo</h2>
+  <div class="botones-categorias">
+    <button class="btn-filtro activo" data-categoria="todos">
+        <i class="fas fa-border-all"></i> Todos
+    </button>
+    <button class="btn-filtro" data-categoria="banos">
+        <i class="fas fa-bath"></i> Baños
+    </button>
+    <button class="btn-filtro" data-categoria="sala">
+        <i class="fas fa-couch"></i> Sala
+    </button>
+    <button class="btn-filtro" data-categoria="alcoba">
+        <i class="fas fa-bed"></i> Alcoba
+    </button>
+    <button class="btn-filtro" data-categoria="con-luces">
+        <i class="fas fa-lightbulb"></i> Con luces
+    </button>
+    <button class="btn-filtro" data-categoria="adornos">
+        <i class="fas fa-paint-brush"></i> Adornos
+    </button>
+  </div>
+</section>
+
+<!-- Catálogo -->
+<section id="productos" class="contenedor-productos">
+  <h2><i class="fas fa-mirror"></i> Catálogo de Espejos</h2>
+  <!-- Aquí los productos se cargarán dinámicamente -->
+</section>
+
+<!-- Modal de Compra -->
+<div id="modalCompra" class="modal">
+    <div class="modal-contenido">
+        <div class="modal-header">
+            <h2><i class="fas fa-shopping-cart"></i> Completa tu pedido</h2>
+            <span class="cerrar-modal-compra">&times;</span>
+        </div>
+        <form id="formCompra">
+            <div class="form-group">
+                <label for="producto"><i class="fas fa-mirror"></i> Espejo:</label>
+                <input type="text" id="producto" name="producto" readonly>
+            </div>
+            <div class="form-group">
+        <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="apellido"><i class="fas fa-user"></i> Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación (Valledupar):</label>
+        <input type="text" id="ubicacion" name="ubicacion" placeholder="Barrio, dirección..." required>
+      </div>
+      <div class="form-group">
+        <label for="telefono"><i class="fas fa-phone"></i> Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="pago"><i class="fas fa-money-bill-wave"></i> Método de pago:</label>
+        <select id="pago" name="pago" required>
+          <option value="Nequi">Nequi</option>
+          <option value="Daviplata">Cotizacion</option>
+          <option value="Efectivo">Pago contra entrega</option>
+        </select>
+      </div>
+      <div class="form-actions">
+                <button type="submit" class="btn-confirmar">
+                    <i class="fas fa-check"></i> Confirmar
+                </button>
+                <button type="button" class="btn-cancelar">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Login Admin -->
+<div id="adminModal" class="modal" style="display:none;">
+  <div class="modal-contenido admin-modal">
+    <span class="cerrar-admin">&times;</span>
+    <div class="admin-header">
+      <h2><i class="fas fa-user-shield"></i> Panel de Super Admin</h2>
+      <div id="adminLogin" class="admin-login">
+        <h3><i class="fas fa-lock"></i> Acceso Administrativo</h3>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="adminEmail"><i class="fas fa-envelope"></i> Email:</label>
+            <input type="email" id="adminEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword"><i class="fas fa-key"></i> Contraseña:</label>
+            <input type="password" id="adminPassword" required>
+          </div>
+          <button type="submit" class="btn-confirmar">
+            <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+          </button>
+        </form>
+        <div id="adminLoginError" style="display:none;color:red;">
+          <i class="fas fa-exclamation-circle"></i> Credenciales incorrectas
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Panel de Administración -->
+<div id="adminPanel" class="admin-panel" style="display: none;">
+    <div class="admin-header">
+        <h2>Panel de Administración</h2>
+        <button class="cerrar-panel-admin">&times;</button>
+    </div>
+    <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="productos">Productos</button>
+        <button class="admin-tab" data-tab="ofertas">Ofertas</button>
+    </div>
+    <div class="admin-content">
+        <div id="productosTab" class="admin-tab-content active">
+            <button id="addProductBtn" class="btn-agregar">
+                <i class="fas fa-plus"></i> Agregar Espejo
+            </button>
+            <div id="productosList" class="productos-lista">
+                <!-- Aquí se cargarán los productos -->
+            </div>
+        </div>
+        <div id="ofertasTab" class="admin-tab-content">
+      <div class="admin-header">
+        <h3><i class="fas fa-tag"></i> Gestión de Ofertas</h3>
+        <button id="addOfertaBtn" class="btn-agregar">+ Nueva Oferta</button>
+      </div>
+      <div id="ofertasList" class="ofertas-list">
+        <!-- Las ofertas se cargarán aquí dinámicamente -->
+      </div>
+    </div>
+    </div>
+  </div>
+
+<!-- Modal de producto -->
+<div id="productModal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-product-modal">&times;</span>
+        <h2 id="productModalTitle">Nuevo Espejo</h2>
+        <form id="productForm" enctype="multipart/form-data">
+            <input type="hidden" id="productId" name="id">
+            <div class="form-group">
+        <label for="productName">Nombre:</label>
+        <input type="text" id="productName" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="productDesc">Descripción:</label>
+        <textarea id="productDesc" name="descripcion" required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="productPriceWith">Precio con montura:</label>
+          <input type="text" id="productPriceWith" name="precio_montura" required>
+        </div>
+        <div class="form-group">
+          <label for="productPriceWithout">Precio sin montura:</label>
+          <input type="text" id="productPriceWithout" name="precio_sin_montura" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="productWidth">Ancho (cm):</label>
+          <input type="text" id="productWidth" name="ancho">
+        </div>
+        <div class="form-group">
+          <label for="productHeight">Largo (cm):</label>
+          <input type="text" id="productHeight" name="largo">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productCategory">Categoría:</label>
+        <select id="productCategory" name="categoria" required>
+          <option value="banos">Baños</option>
+          <option value="sala">Sala</option>
+          <option value="alcoba">Alcoba</option>
+          <option value="con-luces">Con luces</option>
+          <option value="adornos">Adornos</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="productBadge">Badge (Opcional):</label>
+        <input type="text" id="productBadge" name="badge">
+      </div>
+      <div class="form-group">
+        <label for="productImages">Imágenes:</label>
+        <input type="file" id="productImages" name="imagenes" multiple accept="image/*">
+        <div id="productImagesPreview" class="images-preview"></div>
+      </div>
+      <div class="form-actions">
+                <button type="submit" class="btn-guardar">Guardar</button>
+                <button type="button" class="btn-cancelar cerrar-product-modal">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de oferta -->
+<div id="ofertaModal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-oferta-modal">&times;</span>
+        <div class="modal-header">
+      <h2 id="ofertaModalTitle">Nueva Oferta</h2>
+    </div>
+    <form id="ofertaForm">
+      <input type="hidden" id="ofertaId" name="id">
+      <div class="form-group">
+        <label for="ofertaTexto">Texto de la oferta:</label>
+        <input type="text" id="ofertaTexto" name="texto" required>
+      </div>
+      <div class="form-group">
+        <label for="ofertaIcono">Ícono:</label>
+        <input type="text" id="ofertaIcono" name="icono">
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-guardar">
+          <i class="fas fa-save"></i> Guardar Oferta
+        </button>
+        <button type="button" class="btn-cancelar cerrar-oferta-modal">
+          <i class="fas fa-times"></i> Cancelar
+        </button>
+      </div>
+    </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="contacto">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+      <p>📍 Entregamos exclusivamente en Valledupar, Cesar</p>
+    </div>
+    <div class="footer-section">
+      <h3><i class="fas fa-phone-alt"></i> Contacto</h3>
+      <p>WhatsApp: <a href="https://wa.me/573053646901" target="_blank">+57 305 3646901</a></p>
+      <h4><i class="fas fa-phone-alt"></i> Desarrollador web</h4>
+      <p>WhatsApp: <a href="https://wa.me/573053646901" target="_blank">+57 305 3646901</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 La galería del espejo - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/573053646901" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+  <!-- Modal de confirmación -->
+  <div id="modal" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <i class="fas fa-check-circle modal-icon"></i>
+      <h3>Tu pedido fue preparado para enviar por WhatsApp</h3>
+      <a id="confirmarCompra" class="btn-confirmar" target="_blank">
+        <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+      </a>
+    </div>
+  </div>
+</body>
+</html>
